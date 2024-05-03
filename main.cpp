@@ -14,6 +14,9 @@ int main()
     // The Player 1 Bat
     BatPlayer1 batPlayer1(1920 - 60, 1080 / 2);
 
+    // The Player 2 Bat
+    BatPlayer1 batPlayer2(60, 1080 / 2);
+
     // The clock couting the frames
     Clock clock;
 
@@ -50,6 +53,24 @@ int main()
             batPlayer1.stopDown();
         }
 
+        if (Keyboard::isKeyPressed(Keyboard::W))
+        {
+            batPlayer2.moveUp();
+        }
+        else
+        {
+            batPlayer2.stopUp();
+        }
+
+        if (Keyboard::isKeyPressed(Keyboard::S))
+        {
+            batPlayer2.moveDown();
+        }
+        else
+        {
+            batPlayer2.stopDown();
+        }
+
         /*
         Update 
         *********************************************************************
@@ -58,6 +79,7 @@ int main()
         */
         Time dt = clock.restart();
         batPlayer1.update(dt);
+        batPlayer2.update(dt);
 
         /*
         Drawings
@@ -68,6 +90,7 @@ int main()
 
         window.clear();
         window.draw(batPlayer1.getBatShape());
+        window.draw(batPlayer2.getBatShape());
         window.display();
     }
 }
