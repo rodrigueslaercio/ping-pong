@@ -1,6 +1,6 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include "BatPlayer1.h"
+#include "Bat.h"
 
 
 int main()
@@ -12,10 +12,10 @@ int main()
     RenderWindow window(vm, "Ping-Pong", Style::Fullscreen);
 
     // The Player 1 Bat
-    BatPlayer1 batPlayer1(1920 - 60, 1080 / 2);
+    Bat batPlayer1(1920 - 60, 1080 / 2);
 
     // The Player 2 Bat
-    BatPlayer1 batPlayer2(60, 1080 / 2);
+    Bat batPlayer2(60, 1080 / 2);
 
     // The clock couting the frames
     Clock clock;

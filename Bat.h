@@ -3,7 +3,7 @@
 
 using namespace sf;
 
-class BatPlayer1
+class Bat
 {
 private:
 	Vector2f m_Position;
@@ -18,7 +18,7 @@ private:
 
 
 public:
-	BatPlayer1(float startX, float startY);
+	Bat(float startX, float startY);
 
 	FloatRect getPosition();
 

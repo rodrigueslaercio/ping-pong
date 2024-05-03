@@ -1,6 +1,6 @@
-#include "BatPlayer1.h"
+#include "Bat.h"
 
-BatPlayer1::BatPlayer1(float startX, float startY)
+Bat::Bat(float startX, float startY)
 {
 	m_Position.x = startX;
 	m_Position.y = startY;
@@ -11,37 +11,37 @@ BatPlayer1::BatPlayer1(float startX, float startY)
 }
 
 
-FloatRect BatPlayer1::getPosition()
+FloatRect Bat::getPosition()
 {
 	return m_BatShape.getGlobalBounds();
 }
 
-RectangleShape BatPlayer1::getBatShape()
+RectangleShape Bat::getBatShape()
 {
 	return m_BatShape;
 }
 
-void BatPlayer1::moveUp()
+void Bat::moveUp()
 {
 	m_MovingUp = true;
 }
 
-void BatPlayer1::moveDown()
+void Bat::moveDown()
 {
 	m_MovingDown = true;
 }
 
-void BatPlayer1::stopUp()
+void Bat::stopUp()
 {
 	m_MovingUp = false;
 }
 
-void BatPlayer1::stopDown()
+void Bat::stopDown()
 {
 	m_MovingDown = false;
 }
 
-void BatPlayer1::update(Time dt)
+void Bat::update(Time dt)
 {
 	if (m_MovingUp)
 	{
