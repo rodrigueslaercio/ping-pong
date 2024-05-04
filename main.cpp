@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Bat.h"
+#include "Ball.h"
 
 
 int main()
@@ -16,6 +17,9 @@ int main()
 
     // The Player 2 Bat
     Bat batPlayer2(60, 1080 / 2);
+
+    // The ball
+    Ball ball(1920 - 1000, 1080 / 2);
 
     // The clock couting the frames
     Clock clock;
@@ -80,6 +84,7 @@ int main()
         Time dt = clock.restart();
         batPlayer1.update(dt);
         batPlayer2.update(dt);
+        ball.update(dt);
 
         /*
         Drawings
@@ -91,6 +96,7 @@ int main()
         window.clear();
         window.draw(batPlayer1.getBatShape());
         window.draw(batPlayer2.getBatShape());
+        window.draw(ball.getBallShape());
         window.display();
     }
 }
