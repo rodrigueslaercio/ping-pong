@@ -20,10 +20,21 @@ float Ball::getXVelocity()
 }
 
 // Reverse the ball
-void Ball::reboundSides()
+void Ball::reboundBat()
 {
-	m_DirectionX -= m_DirectionX;
+	m_DirectionX = -m_DirectionX;
 }
+
+void Ball::reboundBottom()
+{
+	m_DirectionY = -m_DirectionY;
+}
+
+void Ball::reboundTop()
+{
+	m_DirectionY = -m_DirectionY;
+}
+
 
 RectangleShape Ball::getBallShape()
 {
@@ -32,6 +43,7 @@ RectangleShape Ball::getBallShape()
 
 void Ball::update(Time dt)
 {
+	m_Position.y += m_DirectionY * m_Speed * dt.asSeconds();
 	m_Position.x += m_DirectionX * m_Speed * dt.asSeconds();
 
 	m_BallShape.setPosition(m_Position);

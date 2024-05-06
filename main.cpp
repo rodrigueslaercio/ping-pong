@@ -118,6 +118,24 @@ int main()
         hudP1.setString(ss.str());
         hudP2.setString(ss2.str());
 
+        // Check if the ball hit the bottom of the screen
+        if (ball.getPosition().top > window.getSize().y)
+        {
+            ball.reboundBottom();
+        }
+
+        // Check if the ball hit the top of the screen
+        if (ball.getPosition().top < 0)
+        {
+            ball.reboundTop();
+        }
+
+        // Check if the ball hit the bat
+        if (ball.getPosition().intersects(batPlayer1.getPosition()) || ball.getPosition().intersects(batPlayer2.getPosition()))
+        {
+            ball.reboundBat();
+        }
+
         /*
         Drawings
         *********************************************************************

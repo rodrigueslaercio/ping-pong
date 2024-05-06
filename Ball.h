@@ -22,9 +22,9 @@ public:
 
 	float getXVelocity();
 
-	void reboundSides();
+	void reboundBat();
 
-	void reboundBatTop();
+	void reboundTop();
 
 	void reboundBottom();
 
