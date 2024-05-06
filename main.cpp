@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "Bat.h"
 #include "Ball.h"
+#include <sstream>
 
 
 int main()
@@ -23,6 +24,28 @@ int main()
 
     // The clock couting the frames
     Clock clock;
+
+    // HUD
+    Font font;
+    font.loadFromFile("fonts/DS-DIGIT.ttf");
+
+    Text hudP1;
+    Text hudP2;
+
+    hudP1.setFont(font);
+    hudP1.setCharacterSize(40);
+    hudP1.setFillColor(Color::White);
+    hudP1.setPosition(60, 60);
+
+    hudP2.setFont(font);
+    hudP2.setCharacterSize(40);
+    hudP2.setFillColor(Color::White);
+    hudP2.setPosition(1920 - 200, 60);
+
+
+    // Scores
+    int scoreP1 = 0;
+    int scoreP2 = 0;
 
     while (window.isOpen())
     {
@@ -86,6 +109,15 @@ int main()
         batPlayer2.update(dt);
         ball.update(dt);
 
+
+        // HUD settings
+        std::stringstream ss;
+        std::stringstream ss2;
+        ss << "Score: " << "0";
+        ss2 << "Score: " << "0";
+        hudP1.setString(ss.str());
+        hudP2.setString(ss2.str());
+
         /*
         Drawings
         *********************************************************************
@@ -94,6 +126,8 @@ int main()
         */
 
         window.clear();
+        window.draw(hudP1);
+        window.draw(hudP2);
         window.draw(batPlayer1.getBatShape());
         window.draw(batPlayer2.getBatShape());
         window.draw(ball.getBallShape());
