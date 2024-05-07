@@ -113,8 +113,8 @@ int main()
         // HUD settings
         std::stringstream ss;
         std::stringstream ss2;
-        ss << "Score: " << "0";
-        ss2 << "Score: " << "0";
+        ss << "Score: " << scoreP1;
+        ss2 << "Score: " << scoreP2;
         hudP1.setString(ss.str());
         hudP2.setString(ss2.str());
 
@@ -134,6 +134,22 @@ int main()
         if (ball.getPosition().intersects(batPlayer1.getPosition()) || ball.getPosition().intersects(batPlayer2.getPosition()))
         {
             ball.reboundBat();
+        }
+
+        // Point for player 1
+        if (ball.getPosition().left > window.getSize().x)
+        {
+            ball.point();
+
+            scoreP1++;
+        }
+
+        // Point for player 2
+        if (ball.getPosition().left < 0)
+        {
+            ball.point();
+
+            scoreP2++;
         }
 
         /*
