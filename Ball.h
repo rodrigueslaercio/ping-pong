@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "Bat.h"
 
 using namespace sf;
 
@@ -28,7 +29,9 @@ public:
 
 	void reboundBottom();
 
-	void point();
+	void pointP1(Bat* bat);
+
+	void pointP2(Bat* bat);
 
 	void update(Time dt);
 };

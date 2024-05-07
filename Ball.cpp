@@ -41,13 +41,18 @@ RectangleShape Ball::getBallShape()
 	return m_BallShape;
 }
 
-
-// TODO: the new direction of the ball must vary depending on who scores
-void Ball::point()
+void Ball::pointP1(Bat* bat)
 {
-	m_Position.x = 500;
-	m_Position.y = 0;
-	m_DirectionX = -m_DirectionX;
+	m_Position.x = bat->getPosition().getPosition().x + 20;
+	m_Position.y = bat->getPosition().getPosition().y;
+	m_DirectionX = m_DirectionX;
+}
+
+void Ball::pointP2(Bat* bat)
+{
+	m_Position.x = bat->getPosition().getPosition().x - 20;
+	m_Position.y = bat->getPosition().getPosition().y;
+	m_DirectionX = m_DirectionX;
 }
 
 void Ball::update(Time dt)

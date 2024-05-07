@@ -14,10 +14,10 @@ int main()
     RenderWindow window(vm, "Ping-Pong", Style::Fullscreen);
 
     // The Player 1 Bat
-    Bat batPlayer1(1920 - 60, 1080 / 2);
+    Bat batPlayer1(60, 1080 / 2);
 
     // The Player 2 Bat
-    Bat batPlayer2(60, 1080 / 2);
+    Bat batPlayer2(1920 - 60, 1080 / 2);
 
     // The ball
     Ball ball(1920 - 1000, 1080 / 2);
@@ -62,7 +62,7 @@ int main()
             window.close();
         }
 
-        if (Keyboard::isKeyPressed(Keyboard::Up))
+        if (Keyboard::isKeyPressed(Keyboard::W))
         {
             batPlayer1.moveUp();
         }
@@ -71,7 +71,7 @@ int main()
             batPlayer1.stopUp();
         }
 
-        if (Keyboard::isKeyPressed(Keyboard::Down))
+        if (Keyboard::isKeyPressed(Keyboard::S))
         {
             batPlayer1.moveDown();
         }
@@ -80,7 +80,7 @@ int main()
             batPlayer1.stopDown();
         }
 
-        if (Keyboard::isKeyPressed(Keyboard::W))
+        if (Keyboard::isKeyPressed(Keyboard::Up))
         {
             batPlayer2.moveUp();
         }
@@ -89,7 +89,7 @@ int main()
             batPlayer2.stopUp();
         }
 
-        if (Keyboard::isKeyPressed(Keyboard::S))
+        if (Keyboard::isKeyPressed(Keyboard::Down))
         {
             batPlayer2.moveDown();
         }
@@ -113,8 +113,8 @@ int main()
         // HUD settings
         std::stringstream ss;
         std::stringstream ss2;
-        ss << "Score: " << scoreP1;
-        ss2 << "Score: " << scoreP2;
+        ss << "P1 Score: " << scoreP1;
+        ss2 << "P2 Score: " << scoreP2;
         hudP1.setString(ss.str());
         hudP2.setString(ss2.str());
 
@@ -139,7 +139,7 @@ int main()
         // Point for player 1
         if (ball.getPosition().left > window.getSize().x)
         {
-            ball.point();
+            ball.pointP1(&batPlayer1);
 
             scoreP1++;
         }
@@ -147,7 +147,7 @@ int main()
         // Point for player 2
         if (ball.getPosition().left < 0)
         {
-            ball.point();
+            ball.pointP2(&batPlayer2);
 
             scoreP2++;
         }
