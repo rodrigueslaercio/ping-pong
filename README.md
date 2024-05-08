@@ -3,7 +3,7 @@
 ## Features
 - SFML Library
 - OOP
-- Basic gaming fisics as rebouncing
+- Basic gaming physics as rebouncing
 
 ## Demonstration
 
